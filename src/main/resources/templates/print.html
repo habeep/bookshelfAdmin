@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> 
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					BookId
+				</h1>
+			</section> 
+							 <table class="table table-bordered table-hover">
+									<thead>
+										<tr th:each="formattedBookId : ${formattedBookIds}">
+                                            <td rowspan="6" scope="colgroup" th:text="${formattedBookId}"></td>
+										</tr>
+									</thead>
+								</table> 
+								<div class="form-group">
+										<button type="button" class="btn btn-primary"
+											onclick="javascript:printFunction();">Print</button>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

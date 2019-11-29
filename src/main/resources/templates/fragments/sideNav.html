@@ -1,0 +1,210 @@
+<aside class="left-side sidebar-offcanvas" th:fragment="sideNav">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<!-- 		<div class="user-panel">
+			<div class="pull-left image">
+				<img th:src="@{/images/avatar3.png}" class="img-circle"
+					alt="User Image" />
+			</div>
+			<div class="pull-left info">
+				<p sec:authentication="name"> </p>
+
+				
+			</div>
+		</div> -->
+		<!-- search form -->
+		<!--  <form action="#" method="get" class="sidebar-form">
+			<div class="input-group">
+				<input type="text" name="q" class="form-control"
+					placeholder="Search..." /> <span class="input-group-btn">
+					<button type='submit' name='seach' id='search-btn'
+						class="btn btn-flat">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
+			</div>
+		</form> -->
+		<!-- /.search form -->
+		<!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu">
+			<!--  <li class="active"><a href="index.html"> <i
+					class="fa fa-dashboard"></i> <span>Dashboard</span>
+			</a></li> -->
+
+			<li class="treeview" sec:authorize="isAuthenticated()"><a
+				href="#"> <i class="fa fa-bar-chart-o"></i> <span>My
+						Tasks</span> <i class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+					<li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/mydeliveryslot}"><i
+							class="fa fa-angle-double-right"></i> Alloted Delivery Slots</a></li>
+					<li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/myupcomingdeliveries}" ><i
+							class="fa fa-angle-double-right"></i> My Upcoming Deliveries</a></li>
+					
+					
+									
+					<li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/mycompleteddeliveries}"><i
+							class="fa fa-angle-double-right"></i> My Completed Deliveries</a></li>
+					<li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/myupcomingpickups}"><i
+							class="fa fa-angle-double-right"></i> My Upcoming Pickups</a></li>
+					<li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/mycompletedpickups}"><i
+							class="fa fa-angle-double-right"></i> My Completed Pickups</a></li>
+							
+					<li sec:authorize="hasAuthority('SUPER_ADMIN')" ><a th:href="@{/adminupcomingdeliveries}" ><i
+							class="fa fa-angle-double-right"></i> Upcoming Deliveries List</a></li>
+									
+					<li sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						th:href="@{/confirmpickup}"><i
+							class="fa fa-angle-double-right"></i> Finally Confirm Pickup</a></li>
+				</ul></li>
+			<!-- sec:authorize="isAuthenticated()" -->
+			<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+				href="#"> <i class="fa fa-laptop"></i> <span>Settings</span> <i
+					class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+					<li><a th:href="@{/managearea}"><i
+							class="fa fa-angle-double-right"></i> Manage Area</a></li>
+					<li><a th:href="@{/managebook}"><i
+							class="fa fa-angle-double-right"></i> Manage Book</a></li>
+					<li><a th:href="@{/manageauthor}"><i
+							class="fa fa-angle-double-right"></i> Manage Authors</a></li>
+					<li><a th:href="@{/managebookcategory}"><i
+							class="fa fa-angle-double-right"></i> Manage Book Category</a></li>
+					<li><a th:href="@{/managelanguage}"><i
+							class="fa fa-angle-double-right"></i> Manage Language</a></li>
+					<li><a th:href="@{/managepublisher}"><i
+							class="fa fa-angle-double-right"></i> Manage Publisher</a></li>
+
+					<li><a th:href="@{/managereadinglevel}"><i
+							class="fa fa-angle-double-right"></i> Manage Reading Level</a></li>
+					<li><a th:href="@{/managedeliveryslot}"><i
+							class="fa fa-angle-double-right"></i> Delivery Slots</a></li>
+					<li><a th:href="@{/managestaff}"><i
+							class="fa fa-angle-double-right"></i> Manage Staff</a></li>
+					<li><a th:href="@{/managesubscriptionrule}"><i
+							class="fa fa-angle-double-right"></i> Subscription Rule</a></li>
+					<li><a th:href="@{/managesubscription}"><i
+							class="fa fa-angle-double-right"></i> Subscriptions</a></li>
+					<li><a th:href="@{/testimonials}"><i
+							class="fa fa-angle-double-right"></i>Testimonials</a></li>
+
+
+				</ul></li>
+			<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+				href="#"> <i class="fa fa-edit"></i> <span>Reports</span> <i
+					class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+
+					<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						href="#"> <i class="fa fa-edit"></i> <span>Stock
+								Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							<li><a th:href="@{/reporttotalstock}"><i
+									class="fa fa-angle-double-right"></i>stock list as of today</a></li>
+
+							<li><a th:href="@{/reportdatewise}"><i
+									class="fa fa-angle-double-right"></i> Stock list - date based</a></li>
+							<li><a th:href="@{/reportindividual}"><i
+									class="fa fa-angle-double-right"></i> Individual stock list</a></li>
+						</ul></li>
+
+					<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						href="#"> <i class="fa fa-edit"></i> <span>Daily
+								reports Books</span> <i class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							<li><a th:href="@{/reportbooksinhand}"><i
+									class="fa fa-angle-double-right"></i> Books In</a></li>
+
+							<li><a th:href="@{/reportbooksout}"><i
+									class="fa fa-angle-double-right"></i>Books Out</a></li>
+							<li><a href="javascript:void(0);"><i
+									class="fa fa-angle-double-right"></i> late / overdue books list</a></li>
+						</ul></li>
+
+
+
+					<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						href="#"> <i class="fa fa-edit"></i> <span>Delivery
+								Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							<li><a th:href="@{/reportstafftoday}"><i
+									class="fa fa-angle-double-right"></i> Employee wise report</a></li>
+							<li><a href="javascript:void(0);"><i
+									class="fa fa-angle-double-right"></i>Area Wise report</a></li>
+							<!-- <li><a th:href="@{/reporttodaydelivery}"><i
+									class="fa fa-angle-double-right"></i>books delivery today</a></li>
+							<li><a th:href="@{/reporttodaypickup}"><i
+									class="fa fa-angle-double-right"></i> books picked up today</a></li>
+							<li><a th:href="@{/reportnextdaydelivery}"><i
+									class="fa fa-angle-double-right"></i> books delivery next day</a></li>
+							<li><a th:href="@{/reportnextdaypickup}"><i
+									class="fa fa-angle-double-right"></i> books picked next day</a></li> -->
+						<li><a th:href="@{/reportundelivered}"><i
+									class="fa fa-angle-double-right"></i>UnDelivered Items</a></li>			
+						</ul></li>
+
+
+					<li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						href="#"> <i class="fa fa-edit"></i> <span>Member
+								Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							<li><a th:href="@{/reportfullsubscribeuser}"><i
+									class="fa fa-angle-double-right"></i> Full subscribed member </a></li>
+							<li><a th:href="@{/reportonlyregisteruser}"><i
+									class="fa fa-angle-double-right"></i>Only registered member</a></li>
+							<li><a th:href="@{/reportuserarea}"><i
+									class="fa fa-angle-double-right"></i> Area wise member </a></li>
+							<li><a th:href="@{/reportplanbaseusers}"><i
+									class="fa fa-angle-double-right"></i> Plan wise member</a></li>
+							<li><a th:href="@{/reportexpireusers}"><i
+									class="fa fa-angle-double-right"></i>membership expire </a></li>
+							<li><a href="javascript:void(0);"><i
+									class="fa fa-angle-double-right"></i>charges collected </a></li>
+
+
+						</ul></li>
+					<!-- <li class="treeview" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+						href="#"> <i class="fa fa-edit"></i> <span>New Member</span> <i
+							class="fa fa-angle-left pull-right"></i></a>
+						<ul class="treeview-menu">
+							<li><a href="javascript:void(0);"><i
+									class="fa fa-angle-double-right"></i> Cash/card payment </a></li>
+							<li><a th:href="@{/print}"><i
+									class="fa fa-angle-double-right"></i> printId </a></li>
+						</ul></li> -->
+				</ul></li>
+
+			<li class="active" sec:authorize="hasAnyAuthority('SUPER_ADMIN')"><a
+				th:href="@{/print}"> <i class="fa fa-dashboard"></i> <span>Print Book Id's</span>
+			</a></li>
+			
+			<li class="active" sec:authorize="hasAnyAuthority('SUPER_ADMIN','SALES')"><a
+				th:href="@{/activateusersubscription}"> <i class="fa fa-dashboard"></i> <span>Activate User Subscription</span>
+			</a></li>
+
+			<li class="active" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+				th:href="@{/changepassword}"> <i class="fa fa-dashboard"></i> <span>Change
+						Password</span>
+			</a></li>
+
+
+			<li class="active" sec:authorize="hasAuthority('SUPER_ADMIN')"><a
+				th:href="@{/exportbook}"> <i class="fa fa-dashboard"></i> <span>Export
+						Book</span>
+			</a></li>
+
+			<li class="active" sec:authorize="hasAuthority('ROLE_ADMIN')"><a
+				th:href="@{/changepasswordforuser}"> <i class="fa fa-dashboard"></i>
+					<span>Change Password</span>
+			</a></li>
+			<li class="active" sec:authorize="isAuthenticated()"><a
+				th:href="@{/logout}"> <i class="fa fa-dashboard"></i> <span>Logout</span>
+			</a></li>
+
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>

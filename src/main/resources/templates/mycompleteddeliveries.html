@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title>
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> -->
+
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					My Completed Deliveries and Pickup Details
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">My Completed Deliveries and Pickup Details</h3>
+							</div>
+				           <!-- <form id ="form" method="post" action="/updatemydeliveries">   -->
+							<div class="box-body table-responsive" >
+								<table id="MyCompletedDeliveriesListTable"  class="display select" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											 <th>Order ID</th>
+											<th>Customer Name</th>
+											<th>Customer Email ID</th>
+											 <th>bookID And Titile</th>
+										     <th>PhoneNumber</th>
+											 <th>Address Details</th>
+											 <th>service status</th>
+											 <!--  <th>Service Type </th>  -->
+											
+										<!--  <th>DeliverySlot-area,date and time</th>
+											 <th>Member Details</th> -->
+										     <!-- <th>ServiceType</th>  -->
+										</tr>
+									</thead>
+								</table>	
+						<!-- 	<a href="javascript:void(0);" onclick="javascript:deliveryCheckAll();" class="btn btn-primary">Select All</a>
+							<a href="javascript:void(0);" onclick="javascript:deliveryDeCheckAll();" class="btn btn-primary">UnSelect All</a>
+							<a href="javascript:void(0);"  class="btn btn-primary" onClick="javascript:saveAll();">Save Changes</a> -->
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>							
+							<!-- </form> --> 
+							
+							<!-- <a href="javascript:void(0);" onclick="javascript:deliveryCheckAll();" class="btn btn-primary">Select All</a>
+							<a href="javascript:void(0);" onclick="javascript:deliveryDeCheckAll();" class="btn btn-primary">UnSelect All</a>
+							<a href="javascript:void(0);"  class="btn btn-primary" onClick="javascript:saveAll();">Save Changes</a>
+							<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+ -->				      
+							<!-- /.box-body -->
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

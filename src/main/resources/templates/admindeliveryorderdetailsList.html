@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title>
+
+
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					My OrderId Details List
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">My OrderId Details List</h3>
+							</div>
+							<div class="box-body table-responsive" >
+							 <input type="hidden" name="orderId" id="orderId" th:value="${orderId}"/> 
+								<table id="admindeliveryordersdetailsTable"  class="display select" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											 <th>Order ID</th>
+											<th>Book Id</th>
+											<th>Book Title</th>
+											<th>Publisher</th>
+											<!--  <th>Delivery Slot</th>
+										     <th>PhoneNumber</th>
+											 <th>Address Details</th> -->
+											 <th>service status</th>
+											  <th>Service Type </th> 
+										</tr>
+									</thead>
+								</table>	
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>	
+								<a href="javascript:void(0);" onclick="javascript:deliveryCheckAll();" class="btn btn-primary">Select All</a>
+							    <a href="javascript:void(0);" onclick="javascript:deliveryDeCheckAll();" class="btn btn-primary">UnSelect All</a>
+							    <a href="javascript:void(0);"  class="btn btn-primary" onClick="javascript:saveAllDelivery();">Save Changes</a>									
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

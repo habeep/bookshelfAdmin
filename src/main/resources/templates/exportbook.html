@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>Export Book</h1>
+
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<form autocomplete="off" action="#" th:action="@{/exportbook}"
+								method="post" role="form" enctype="multipart/form-data">
+								<div class="box-body table-responsive">
+
+									<div class="form-group">
+										<label>Select the file to export the book</label> <input
+											type="file" th:name="file">
+									</div>
+
+
+
+								</div>
+
+								<div class="form-group">
+
+									<button type="submit" class="btn btn-primary">Export</button>
+
+
+
+								</div>
+                             
+								<div class="form-group has-success"
+									th:if="${successMessage != null}">
+									<label class="control-label" for="inputError"><i
+										class="fa fa-times-circle-o"></i> <span
+										th:utext="${successMessage}"></span> </label>
+
+								</div>
+								<div  class="form-group has-error" 
+									th:if="${errorMessage != null}">
+									<span th:utext="${errorMessage}" class="inputError"></span>
+									<table border="1">
+										<tr th:each="instance : ${errors}" class="callout callout-danger">
+											<td th:text="${instance.key}"  />
+											<td th:text="${instance.value}"  />
+										</tr>
+									</table>
+								</div>
+							</form>
+						</div>
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+</body>
+</html>

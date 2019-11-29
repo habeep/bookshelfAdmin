@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title>
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> -->
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					My Deliveries
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">My Deliveries List</h3>
+							</div>
+				           <form id ="myform" method="post" action="/updatemydeliveries">  
+							<div class="box-body table-responsive">
+								<table id="mypickupTable"  class="display select" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+										    <!-- <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th> -->
+											<th>Order ID</th>
+											<th>Customer Email ID</th>
+											 <th>bookID</th>
+											 <th>PhoneNumber</th>
+											<th>houseNumber</th>
+											<th>street</th>
+											<th>locality</th>
+											<th>city</th>
+											<th>pincode</th>
+											<th>Request Type</th>
+											<th>Delivery/Pickup Status</th>
+										</tr>
+									</thead>
+								     <!-- <tfoot>
+                                            <tr>
+                                            <th></th>
+                                            <th>Order ID</th>
+											<th>Customer Email ID</th>
+											 <th>bookID</th>
+											 <th>Sold Id</th>
+											<th>houseNumber</th>
+											<th>street</th>
+											<th>locality</th>
+											<th>city</th>
+											<th>pincode</th>
+											<th>type_return</th>
+											<th>Return Status</th>
+											</tr>
+											</tfoot>  -->
+
+								</table>
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+							</form> 
+							 <!-- <a th:href="@{/adddeliveryslot}" class="btn btn-primary">Confirm</a> -->
+							<input type="submit" value="Save Changes" class="btn btn-primary">
+							
+				  </div> 
+							<!-- /.box-body -->
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

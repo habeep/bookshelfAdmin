@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>Report Individual Stock</h1>
+
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+						<div class="box-header">
+								<h3 class="box-title">Individual Stock Books</h3>
+							</div>
+							<div class="box-body table-responsive">
+
+
+
+								<div class="form-group">
+									<label>Language</label> <select name="languages">
+										<option value="-1">Language</option>
+										<option th:each="dropDownItem : ${languages}"
+											th:value="${dropDownItem.languageID}"
+											th:text="${dropDownItem.language}" />
+
+									</select>
+
+
+								</div>
+
+								<div class="form-group">
+									<label>Author</label> <select name="authors">
+										<option value="-1">Author</option>
+										<option th:each="dropDownItem1 : ${authors}"
+											th:value="${dropDownItem1.authorID}"
+											th:text="${dropDownItem1.authorName}" />
+
+									</select>
+
+
+								</div>
+
+
+								<div class="form-group">
+									<label>Publisher</label> <select name="publishers">
+										<option value="-1">Publisher</option>
+										<option th:each="dropDownItem2 : ${publishers}"
+											th:value="${dropDownItem2.publisherId}"
+											th:text="${dropDownItem2.publisherName}" />
+
+									</select>
+
+
+								</div>
+								<div class="form-group">
+									<label>ReadingLevel</label> <select name="readingLevels">
+										<option value="-1">ReadingLevel</option>
+										<option th:each="readingLevel : ${readingLevels}"
+											th:value="${readingLevel.readingLevelId}"
+											th:text="${readingLevel.readingLevel}" />
+
+									</select>
+
+
+								</div>
+
+								<div class="form-group"> 
+
+										<button type="button" class="btn btn-primary" onclick="javascript:individualStockList();">Submit</button>
+									</div>
+
+							</div>
+							<!-- </form> -->
+								<table id="reportIndividualBookTable"
+									class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Book ID</th>
+											 <th>ISBN Code</th> 
+											<th>Book Title</th>
+											 <th>Publisher Name</th>
+											 <th>Author Name</th> 
+											 <th>Language</th>
+											 <th>ReadingLevel</th>
+										</tr>
+									</thead>
+
+
+								</table>
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+							</div>
+						</div>
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+
+</body>
+</html>

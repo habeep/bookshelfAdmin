@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>Update DeliverySlot</h1>
+
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<form autocomplete="off" action="#"
+								th:action="@{/updatedeliveryslot}" th:object="${deliveryslot}"
+								method="post" role="form">
+								<div class="box-body table-responsive">
+									<div class="form-group">
+									<input type="hidden"
+											th:field="*{isActive}" placeholder="Book Title"
+											class="form-control" />
+										<label>Staff</label> <input th:type="hidden"
+											th:field="*{slotID}" placeholder="Date of Delivery"
+											class="form-control" /> <select th:field="*{staffID}">
+											<option value="-1">Staff</option>
+											<option th:each="dropDownItem : ${staffs}"
+												th:value="${dropDownItem.id}"
+												th:text="${dropDownItem.emailId}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('staffID')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{staffID}" class="validation-message"></span> </label>
+
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Area</label> <select th:field="*{areaID}">
+											<option value="-1">Area</option>
+											<option th:each="dropDownItem : ${areas}"
+												th:value="${dropDownItem.areaID}"
+												th:text="${dropDownItem.pincode}" />
+
+										</select>
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('areaID')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{areaID}" class="validation-message"></span> </label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Date Of delivery</label> <input th:type="date"
+											th:field="*{dateOfdelivery}" placeholder="Date of Delivery"
+											class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('dateOfdelivery')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{dateOfdelivery}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>From</label> <select th:field="*{deliveryTimeFrom}">
+											<option th:value="'0'" th:text="0"></option>
+											<option th:value="'1'" th:text="01"></option>
+											<option th:value="'2'" th:text="02"></option>
+											<option th:value="'3'" th:text="03"></option>
+											<option th:value="'4'" th:text="04"></option>
+											<option th:value="'5'" th:text="05"></option>
+											<option th:value="'6'" th:text="06"></option>
+											<option th:value="'7'" th:text="07"></option>
+											<option th:value="'8'" th:text="08"></option>
+											<option th:value="'9'" th:text="09"></option>
+											<option th:value="'10'" th:text="10"></option>
+											<option th:value="'11'" th:text="11"></option>
+											<option th:value="'12'" th:text="12"></option>
+											<option th:value="'13'" th:text="13"></option>
+											<option th:value="'14'" th:text="14"></option>
+											<option th:value="'15'" th:text="15"></option>
+											<option th:value="'16'" th:text="16"></option>
+											<option th:value="'17'" th:text="17"></option>
+											<option th:value="'18'" th:text="18"></option>
+											<option th:value="'19'" th:text="19"></option>
+											<option th:value="'20'" th:text="20"></option>
+											<option th:value="'21'" th:text="21"></option>
+											<option th:value="'22'" th:text="22"></option>
+											<option th:value="'23'" th:text="23"></option>
+											<option th:value="'24'" th:text="24"></option>
+										</select>
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('deliveryTimeFrom')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{deliveryTimeFrom}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Till</label> <select th:field="*{deliveryTimeTill}">
+											<option th:value="'0'" th:text="0"></option>
+											<option th:value="'1'" th:text="01"></option>
+											<option th:value="'2'" th:text="02"></option>
+											<option th:value="'3'" th:text="03"></option>
+											<option th:value="'4'" th:text="04"></option>
+											<option th:value="'5'" th:text="05"></option>
+											<option th:value="'6'" th:text="06"></option>
+											<option th:value="'7'" th:text="07"></option>
+											<option th:value="'8'" th:text="08"></option>
+											<option th:value="'9'" th:text="09"></option>
+											<option th:value="'10'" th:text="10"></option>
+											<option th:value="'11'" th:text="11"></option>
+											<option th:value="'12'" th:text="12"></option>
+											<option th:value="'13'" th:text="13"></option>
+											<option th:value="'14'" th:text="14"></option>
+											<option th:value="'15'" th:text="15"></option>
+											<option th:value="'16'" th:text="16"></option>
+											<option th:value="'17'" th:text="17"></option>
+											<option th:value="'18'" th:text="18"></option>
+											<option th:value="'19'" th:text="19"></option>
+											<option th:value="'20'" th:text="20"></option>
+											<option th:value="'21'" th:text="21"></option>
+											<option th:value="'22'" th:text="22"></option>
+											<option th:value="'23'" th:text="23"></option>
+											<option th:value="'24'" th:text="24"></option>
+
+										</select>
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('deliveryTimeTill')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{deliveryTimeTill}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+
+								</div>
+
+								<div class="form-group">
+
+									<button type="submit" class="btn btn-primary">Update</button>
+									<a class="btn btn-primary" th:href="@{/managedeliveryslot}">View
+										All</a>
+
+
+								</div>
+
+
+								<div class="form-group has-error" th:if="${errorMsg != null}">
+									<label class="control-label" for="inputError"><i
+										class="fa fa-times-circle-o"></i> <span th:utext="${errorMsg}"></span>
+									</label>
+
+								</div>
+
+							</form>
+						</div>
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+
+</body>
+</html>

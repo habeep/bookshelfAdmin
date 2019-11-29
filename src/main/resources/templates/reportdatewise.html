@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title>
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					Reports Date Based
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<!-- <form autocomplete="off" action="#" th:action="@{/datewise}"
+								 method="get" role="form" > -->
+								<div class="box-body table-responsive">
+									
+									
+
+									<div class="form-group">
+										<label>from date</label> <input type="date" name="fromDate" id="formDate"
+											 placeholder="FromDate"
+											class="form-control" />
+									</div>
+
+									<div class="form-group">
+										<label>till date</label> <input type="date" name="tillDate" id="tillDate"
+											 placeholder="TillDate"
+											class="form-control" />
+									</div>
+
+								</div>
+
+								<div class="form-group">
+
+									<button type="button" class="btn btn-primary" onclick="javascript:searchDateWiseBooksDetails();">submit</button>
+									
+								</div>
+
+
+								
+							<!-- </form> -->
+							
+							<div class="box-body table-responsive">
+							<!-- <table id="searchbookTable" class="display" width="100%"></table> -->
+							
+							 <table id="searchbookTable" class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Book ID</th>
+											 <th>ISBN Code</th> 
+											<th>Book Title</th>
+											 <th>Publisher Name</th>
+											 <th>Author Name</th> 
+											 <th>Language</th>
+											 <th>ReadingLevel</th>
+											<!-- <th>Language</th>
+											<th>Published Year</th>
+											<th>Borrowed</th>
+											<th>isLost</th>
+											<th>Status</th>
+											<th>Long Title</th> -->
+										</tr>
+										
+									</thead>
+                                 <tbody style="text-align:center;" id="searchbookTable"></tbody>
+
+								</table> 
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+							</div>
+						</div>
+						
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+</body>
+</html>

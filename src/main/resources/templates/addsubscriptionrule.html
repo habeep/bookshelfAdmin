@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					Add SubscriptionRule
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<form autocomplete="off" action="#"
+								th:action="@{/addsubscriptionrule}"
+								th:object="${subscriptionrule}" method="post" role="form">
+								<div class="box-body table-responsive">
+
+									<div class="form-group">
+										<label>ruleName</label> <input type="text" th:field="*{ruleName}"
+											placeholder="Enter Rule Name" class="form-control" />
+
+										
+
+									</div>
+
+									<div class="form-group">
+										<label>Number of Days </label> <input type="text"
+											th:field="*{noofMonths}" placeholder="Enter Number of Days"
+											class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('noofMonths')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{noofMonths}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Maximum Number of Books</label> <input type="text"
+											th:field="*{maxNumberofBooks}"
+											placeholder="Enter Maximum Number of Books" class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('maxNumberofBooks')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{maxNumberofBooks}" class="validation-message"></span>
+											</label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Max Number of Delivery (per month)</label> <input type="text"
+											th:field="*{maxNumberofDelivery}" placeholder="Maximum Number of Delivery"
+											class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('maxNumberofDelivery')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{maxNumberofDelivery}" class="validation-message"></span>
+											</label>
+										</div>
+
+									</div>
+
+									<div class="form-group">
+										<label>Rule</label> <input type="text"
+											th:field="*{rule}" placeholder="Address"
+											class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('rule')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{rule}" class="validation-message"></span>
+											</label>
+										</div>
+
+									</div>
+
+									
+
+
+								</div>
+
+								<div class="form-group">
+
+									<button type="submit" class="btn btn-primary">Add</button>
+									<a class="btn btn-primary" th:href="@{/managesubscriptionrule}">View
+										All</a>
+
+
+								</div>
+
+
+								
+							</form>
+						</div>
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+
+</body>
+</html>

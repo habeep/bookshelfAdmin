@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					Update ReadingLevel
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<form  action="#" th:action="@{/updatereadinglevel}"
+									method="post"  role="form" onsubmit="javascript:return submitMe();">
+							<div class="box-body table-responsive">
+								
+									<div class="form-group">
+										<label >ReadingLevel Name *</label>
+										<input type="hidden" name="readinglevelId" th:value=${readinglevelId} />
+											<input type="text" id="readinglevelName" name="readinglevelName" th:value="${readinglevelName}"
+												placeholder="ReadingLevelName" class="form-control" />
+										</div>
+										
+										<div class="form-group">
+										<label >Description *</label>
+										
+											<input type="text" id="description" name="description" th:value=${description}
+												placeholder="Description of the reading Level" class="form-control" />
+										</div>
+										
+									</div>
+									
+									<div class="box-footer">
+										
+											<button type="submit" class="btn btn-primary">Update
+												</button> <a th:href="@{/managereadinglevel}" class="btn btn-primary">View All </a>
+										
+									</div>
+									
+
+									<div class="form-group has-error" th:if ="${errorMsg != null}">
+									<label class="control-label" for="inputError"><i
+										class="fa fa-times-circle-o"></i>  <span
+										th:utext="${errorMsg}"></span> </label>
+
+								</div>
+
+								</form>
+							</div>
+							<!-- /.box-body -->
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+<script type="text/javascript">
+		function submitMe() {
+
+			var readinglevelName = document.getElementById("readinglevelName").value;
+			var description = document.getElementById("description").value;
+			if (readinglevelName == "" || readinglevelName == " " || readinglevelName == 0 || description == "" || description == " " || description == 0 || description.length == 0) {
+				alert("All Fields Must be Filled.");
+				return false;
+			}
+			return true;
+		}
+	</script>
+		
+</body>
+</html>

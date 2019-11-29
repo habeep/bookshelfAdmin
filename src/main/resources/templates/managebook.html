@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+
+<title>Manage Cast</title> 
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					Manage Books
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">Books List</h3>
+							</div>
+							<div class="box-body table-responsive">
+								<table id="bookTable" class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Book ID</th>
+											<th>Book Name</th>
+											<th>ISBN Code</th>
+											<th>Publisher</th>
+											<th>Author</th>
+											<th>Reading Level</th>
+											<th>Category</th>
+											<th>Language</th>
+											<th>Published Year</th>
+											<th>Borrowed</th>
+											<th>isLost</th>
+											<th>Status</th>
+											<th>Long Title</th>
+											
+
+										</tr>
+									</thead>
+
+
+								</table>
+								<a th:href="@{/addbook}" class="btn btn-primary">New</a>
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+							</div>
+							<!-- /.box-body -->
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

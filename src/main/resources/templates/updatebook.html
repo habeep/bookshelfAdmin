@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>Update Book</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-primary">
+							<form autocomplete="off" action="#" th:action="@{/updatebook}"
+								th:object="${book}" method="post" role="form">
+								<div class="box-body table-responsive">
+
+									<div class="form-group">
+										<label>Book Title</label> <input type="text"
+											th:field="*{bookTitle}" placeholder="Book Title"
+											class="form-control" /> 
+											
+											<input type="hidden"
+											th:field="*{bookId}" placeholder="Book Title"
+											class="form-control" />
+										<input type="hidden"
+											th:field="*{isActive}" placeholder="Book Title"
+											class="form-control" />
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('bookTitle')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{bookTitle}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Book Long Title</label> <input type="text"
+											th:field="*{longTitle}" placeholder="Book Long Title"
+											class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('longTitle')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{longTitle}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label>Book Description</label> <input type="text"
+											th:field="*{description}" placeholder="Book Description"
+											class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('description')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{description}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label>Amount</label> <input type="text" th:field="*{amount}"
+											placeholder="Amount" class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('amount')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{amount}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Binding</label> <input type="text"
+											th:field="*{binding}" placeholder="Binding Type"
+											class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('binding')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{binding}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Number of Pages</label> <input type="text"
+											th:field="*{noofPages}" placeholder="No Of Pages"
+											class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('noofPages')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{noofPages}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>ISBN</label> <input type="text" th:field="*{isbncode}"
+											placeholder="ISBN" class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('isbncode')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{isbncode}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Language</label> <select th:field="*{languageId}">
+											<option value="-1">Language</option>
+											<option th:each="dropDownItem : ${languages}"
+												th:value="${dropDownItem.languageID}"
+												th:text="${dropDownItem.language}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('languageId')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{languageId}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Author</label> <select th:field="*{authorID}">
+											<option value="-1">Author</option>
+											<option th:each="dropDownItem : ${authors}"
+												th:value="${dropDownItem.authorID}"
+												th:text="${dropDownItem.authorName}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('authorID')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{authorID}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Publisher</label> <select th:field="*{publisherID}">
+											<option value="-1">Publisher</option>
+											<option th:each="dropDownItem : ${publishers}"
+												th:value="${dropDownItem.publisherId}"
+												th:text="${dropDownItem.publisherName}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('publisherID')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{publisherID}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Book Category</label> <select th:field="*{categoryID}">
+											<option value="-1">Book Category</option>
+											<option th:each="dropDownItem : ${categories}"
+												th:value="${dropDownItem.categoryId}"
+												th:text="${dropDownItem.categoryName}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('categoryID')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{categoryID}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Reading Level</label> <select th:field="*{readingLevelId}">
+											<option value="-1">Reading Level</option>
+											<option th:each="dropDownItem : ${readingLevels}"
+												th:value="${dropDownItem.readingLevelId}"
+												th:text="${dropDownItem.readingLevel}" />
+
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('readingLevelId')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{readingLevelId}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+
+
+
+
+									<div class="form-group">
+										<label>Published Year</label> <input type="text"
+											th:field="*{publishedYear}" placeholder="Published Year"
+											class="form-control" />
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('publishedYear')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{publishedYear}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>Is Featured Book?</label> <select th:field="*{isFeaturedBook}">
+											<option th:value="'1'" th:text="Yes"></option>
+											<option th:value="'0'" th:text="No"></option>
+										</select>
+
+										<div class="form-group has-error"
+											th:if="${#fields.hasErrors('isFeaturedBook')}">
+											<label class="control-label" for="inputError"><i
+												class="fa fa-times-circle-o"></i> <span
+												th:errors="*{isFeaturedBook}" class="validation-message"></span>
+											</label>
+
+
+										</div>
+									</div>
+
+
+
+
+
+								</div>
+
+								<div class="form-group">
+
+									<button type="submit" class="btn btn-primary">Update</button>
+									<a class="btn btn-primary" th:href="@{/managebook}">View
+										All</a>
+
+
+								</div>
+
+
+								<div class="form-group has-error" th:if="${errorMsg != null}">
+									<label class="control-label" for="inputError"><i
+										class="fa fa-times-circle-o"></i> <span th:utext="${errorMsg}"></span>
+									</label>
+
+								</div>
+
+							</form>
+						</div>
+						<!-- /.box-body -->
+
+
+					</div>
+				</div>
+	</div>
+	</section>
+
+	</aside>
+
+
+</body>
+</html>

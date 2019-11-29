@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Untitled Document</title>
+
+<style>
+
+.del-wrap{
+
+	position:relative;
+
+	float:left;
+
+	width:98%;
+
+	padding:0px;
+
+	margin:9px;
+
+	border-bottom:solid 2px #ffffff;
+
+	font-size: 16px;
+
+	color:#000000;
+
+	font-family: "Lato", "Open Sans", sans-serif;
+
+}
+
+.main-details{
+
+	width:100%;
+
+	display:flex;
+
+	flex-direction:row;
+
+	justify-content:flex-start;
+
+	flex-flow: row wrap;
+
+	align-items:left;
+
+	border-top:solid 1px #333;
+
+	background-color:#e7e7e7;
+
+}
+
+.main-details-box{
+
+	float:left;
+
+	width:25%;
+
+	margin: 0 auto;
+
+}
+
+.main-details-title{
+
+	float:left;
+
+	width:100%;
+
+	margin: 0 auto;
+
+	border-bottom:solid 1px #333;
+
+	background-color:#ffffff;
+
+}
+
+.main-details-desc{
+
+	float:left;
+
+	width:100%;
+
+	margin: 0 auto;
+
+}
+
+.main-details-desc span{
+
+	width:100%;
+
+	float:left;
+
+	padding:2px;
+
+}
+
+.book-details{
+
+	display:flex;
+
+	flex-direction:row;
+
+	justify-content:flex-start;
+
+	flex-flow: row wrap;
+
+	align-items:left;
+
+	border-bottom:solid 2px #ffffff;
+
+	background-color:#e7e7e7;
+
+}
+
+.book-service-title{
+
+	float:left;
+
+	width:100%;
+
+	background-color:#ffffff;
+
+	border-bottom:solid 1px #000000;
+
+	border-top:solid 1px #000000;
+
+	margin-bottom:9px;
+
+	margin-bottom:7px;
+
+	font-weight:bold;
+
+	font-size:21px;
+
+	color:#363636;
+
+}
+
+.book-row{
+
+	float:left;
+
+	width:100%;
+
+	border-bottom:solid 6px #ffffff;
+
+}
+
+.book-desc{
+
+	float:left;
+
+	width:50%;
+
+	margin: 0 auto;
+
+	padding-top:5px;
+
+	padding-bottom:5px;
+
+	font-weight:bold;
+
+}
+
+.book-number{
+
+	float:left;
+
+	width:20%;
+
+	margin: 0 auto;
+
+	font-weight:bold;
+
+}
+
+.task{
+
+	float:left;
+
+	width:30%;
+
+	margin: 0 auto;
+
+	font-weight:bold;
+
+}
+
+.checkmark {
+
+  height:18px;
+
+  width: 18px;
+
+  margin-right:9px;
+
+}
+
+/* media queries */
+
+@media only screen and ( min-width: 0px ) and ( max-width: 480px ){
+
+.main-details{
+
+	display:flex;
+
+	flex-direction:column;
+
+	justify-content:flex-start;
+
+	flex-flow: column wrap;
+
+	align-items:left;
+
+	border-bottom:solid 1px #333;
+
+	border-top:solid 1px #333;
+
+	background-color:#e7e7e7;
+
+}
+
+.main-details-box{
+
+	float:left;
+
+	width:95%;
+
+	margin: 0 auto;
+
+	padding:9px;
+
+}
+
+.book-service-title{
+
+	margin-bottom:0px;
+
+}
+
+.book-details{
+
+	background-color:#ffffff;
+
+}
+
+.book-row{
+
+	border-top:solid 1px #000000;
+
+	border-bottom:solid 1px #000000;
+
+	margin-bottom:20px;
+
+	background-color:#ececec;
+
+}
+
+.book-desc{
+
+	font-size:14px;
+
+	font-weight:none;
+
+	width:100%;
+
+	border-bottom:solid 1px #9c9c9c;
+
+}
+
+.book-number{
+
+	font-size:14px;
+
+	font-weight:none;
+
+	width:100%;
+
+	border-bottom:solid 1px #9c9c9c;
+
+}
+
+.task{
+
+	font-size:12px;
+
+	font-weight:none;
+
+	width:100%;
+
+}	
+
+}
+
+</style>
+
+</head>
+
+
+
+<body th:each="deliverList : ${deliverLists}">
+
+<div class="del-wrap">
+
+<div class="main-details">
+
+<div class="main-details-box">
+
+<div class="main-details-title">Order Id</div>
+
+<div class="main-details-desc"><span th:text="${deliverList[0]}"></span></div>
+
+</div>
+
+<div class="main-details-box">
+
+<div class="main-details-title">Delivery area/day/date/time</div>
+
+<div class="main-details-desc">
+
+<span>perungudi</span>
+
+<span>Wednesday, 10.04.19</span>
+
+<span>12 pm - 5 pm</span>
+
+</div>
+
+</div>
+
+<div class="main-details-box">
+
+<div class="main-details-title">Member details</div>
+
+<div class="main-details-desc">
+
+<span>Member id : 234567</span>
+
+<span>Member name : john</span>
+
+<span>Address : house number, building name, land mark</span>
+
+<span>Phone number : 9840256152</span>
+
+</div>
+
+</div>
+
+<div class="main-details-box">
+
+<div class="main-details-title">Service type</div>
+
+<div class="main-details-desc">
+
+<span>Both pick up and delivery</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="book-details">
+
+<div class="book-service-title">Books to be picked up</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 1: BS1002</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 2: BS1662</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 3: BS1502</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+</div>
+
+<div class="book-details">
+
+<div class="book-service-title">Books to be delivered</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 1: BS1002</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 2: BS1662</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book-number">
+
+Book 3: BS1502</div>
+
+<div class="book-desc">Book title should come here</div>
+
+<div class="task"><input type="checkbox" class="checkmark">Task completed</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title>
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> -->
+
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>
+					Payment Screen
+				</h1>
+				
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">Payment Screen</h3>
+							</div>
+				          <!--  <form id ="form" method="post" action="/updatemydeliveries">   -->
+							<div class="box-body table-responsive" >
+								<table id="reportPaymentTable"  class="display select" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th>MemberID</th>
+											<th>Member Name</th>
+											<th>Subscribtion Id</th>
+											<th>amount</th>
+											<th>PaymentStatus</th>
+										</tr>
+									</thead>
+								</table>	
+								<!-- <div th:each="payment : ${paymentconfirmation}"> -->
+								<!-- <a href="javascript:void(0);"
+										th:onclick="'javascript:paymentConfirmation(\'' + ${payment[10]} + '\',\'' + ${payment[11]}+'\',\'' + ${payment[12]}+'\',\'' + ${payment[0]}+'\');'" class="btn btn-primary">ConfirmPayment</a> -->
+								 <a href="javascript:void(0);" onclick="javascript:paymentConfirmation();" class="btn btn-primary">ConfirmPayment</a> 
+							<!-- 	</div>	 -->					
+							<!-- </form>  -->
+							<!-- /.box-body -->
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>

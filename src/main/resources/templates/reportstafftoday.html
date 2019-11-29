@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headpart :: headPart}">
+<title>Manage Cast</title> <
+</head>
+<body class="skin-black" style="height: auto; min-height: 100%;">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<aside th:replace="~{fragments/sideNav :: sideNav}"></aside>
+		<aside class="right-side">
+			<section class="content-header">
+				<h1>Report Employee wise</h1>
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">Employee Report</h3>
+							</div>
+							<!-- <div class="box box-primary"> -->
+								<div class="box-body table-responsive">
+									<div class="form-group">
+										<label>Staff</label> <select name="staffs" id="staffs">
+											<option value="-1">staff</option>
+											<option th:each="staff : ${staffs}" th:value="${staff.id}"
+												th:text="${staff.emailId}" />
+										</select>
+									</div>
+								<div class="form-group">
+										<button type="button" class="btn btn-primary"
+											onclick="javascript:todayEmployeeWiseReport();">Today</button>
+										<button type="button" class="btn btn-primary"
+											onclick="javascript:weekEmployeeWiseReport()">Week</button>
+									</div>
+								</div>
+								<table id="reportStaffTodayTable"
+									class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Order ID</th>
+											<th>Customer Email</th>
+											<th>DeliverySlotDate</th>
+											<th>Delivery Details</th>
+											<th>Pickup Details</th>
+											<th>PhoneNumber</th>
+											<th>Address</th>
+										</tr>
+
+									</thead>
+								</table>
+								<a href="javascript:void(0);" onclick="javascript:printFunction();" class="btn btn-primary">Print this page</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</aside>
+</body>
+</html>
